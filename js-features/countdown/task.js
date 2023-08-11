@@ -1,10 +1,13 @@
-const countdown = function(){
-    const output = document.getElementById("timer");
-    if (output.textContent >= '1'){
-        output.textContent --;
-    }
-    else if (output.textContent = '0')
-    alert("Вы победили в конкурсе!");
-}
 
-setInterval(countdown, 1000)
+const timer = document.getElementById("timer");
+
+const timerId = setInterval(() => {
+    const value = +timer.textContent;
+    if (value > 0) {
+      timer.textContent = value - 1;
+    } else {
+      alert("«Вы победили в конкурсе!»");
+      clearInterval(timerId);
+    }
+}, 1000)
+
