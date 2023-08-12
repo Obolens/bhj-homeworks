@@ -5,7 +5,7 @@ const reload = () => {
 	dead.textContent = 0;
 	lost.textContent = 0;
 }
-const getHole = (index) => document.getElementById("hole${index}");
+const getHole = (index) => document.getElementById(`hole${index}`);
 
 for (i = 1; i < 10; i++) {
   let hole = getHole(i);
@@ -16,11 +16,11 @@ for (i = 1; i < 10; i++) {
     } else {
       lost.textContent++;
     }
-     if (dead == 10) {
+     if (dead.textContent == 10) {
        alert ("You have won!");
        reload ();
      }
-    if (lost == 5) {
+    else if (lost.textContent == 5) {
        alert ("Oops! You have lost. Try one more time!");
        reload ();
     }
