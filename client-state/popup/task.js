@@ -1,19 +1,11 @@
-const modal = document.getElementById("subscribe-modal");
-const modalClose = document.querySelector(".modal__close");
+const modal = document.querySelector('#subscribe-modal');
+const modalClose = document.querySelector('.modal__close');
 
-function getCookie() {
-    return document.cookie.split('; ').reduce((acc, item) => {
-      const [name, value] = item.split('=');
-      return { ...acc, [name]: value };
-    }, {});
-  };
+if(!document.cookie.includes('name=CookieClose')) {
+  modal.classList.add('modal_active');
+}
 
-const cookie = getCookie();
-
-if (cookie.modalActive !== "yes") {
-        modal.classList.add("modal_active");
-    modalClose.onclick = () => {
-        modal.classList.remove("modal_active");
-        document.cookie = "modalActive=yes; max-age=300";
-    };
-};
+modalClose.addEventListener('click', () => {
+  modal.classList.remove('modal_active');
+  document.cookie = 'name=CookieClose';
+})
